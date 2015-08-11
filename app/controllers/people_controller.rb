@@ -4,7 +4,8 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.order('name ASC').all
+    respond_to :json, :html
   end
 
   # GET /people/1
