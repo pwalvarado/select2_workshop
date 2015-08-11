@@ -12,6 +12,6 @@ class CreatePeople < ActiveRecord::Migration
     Person.create name: "Andres",    favorite_color: "Brown"
     Person.create name: "Christian", favorite_color: "Magenta"
     Person.create name: "Camilo",    favorite_color: "Red"
-    Person.create name: "MArta",     favorite_color: "Green"
+    Person.create name: "Marta",     favorite_color: "Green"
   end
 end
