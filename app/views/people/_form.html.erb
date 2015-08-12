@@ -31,8 +31,21 @@
   </div>
 
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            people_path, :class => 'btn btn-default' %>
+  <div class="panel-heading">
+    <h3>Cursos</h3>
+  </div>
+  <fieldset id="person-courses">
+    <%= f.fields_for :person_courses do |person_course| %>
+      <%= render 'person_course_fields', f: person_course %>
+    <% end %>
+  </fieldset>
+
+
+  <div class="btn-group">
+    <%= link_to_add_fields "Add course", f, :person_courses, class: "btn btn-default"  %>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              people_path, :class => 'btn btn-default' %>
+  </div>
 
 <% end %>
