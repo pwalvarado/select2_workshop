@@ -1,6 +1,6 @@
 <%= form_for @person, :html => { :class => "form-horizontal person" } do |f| %>
 
-    <% if @person.errors.any? %>
+  <% if @person.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
         <h3 class="panel-title"><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h3>
@@ -22,6 +22,7 @@
     </div>
     <%= error_span(@person[:name]) %>
   </div>
+
   <div class="control-group">
     <%= f.label :favorite_color, :class => 'control-label' %>
     <div class="controls">
@@ -31,21 +32,15 @@
   </div>
 
 
-  <div class="panel-heading">
-    <h3>Cursos</h3>
-  </div>
-  <fieldset id="person-courses">
-    <%= f.fields_for :person_courses do |person_course| %>
-      <%= render 'person_course_fields', f: person_course %>
-    <% end %>
-  </fieldset>
+  <h3>Cursos</h3>
 
+  <%= f.fields_for :person_courses do |person_course| %>
+    <%= render 'person_course_fields', f: person_course %>
+  <% end %>
 
-  <div class="btn-group">
-    <%= link_to_add_fields "Add course", f, :person_courses, class: "btn btn-default"  %>
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-              people_path, :class => 'btn btn-default' %>
-  </div>
+  <%= link_to_add_fields "Add course", f, :person_courses, class: "btn btn-default"  %>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            people_path, :class => 'btn btn-default' %>
 
 <% end %>
