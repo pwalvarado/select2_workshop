@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :groups
+  resources :groups do
+    member do
+      get 'course'
+      get 'by_course'
+    end
+  end
+
   resources :courses
   resources :people
   # The priority is based upon order of creation: first created -> highest priority.

@@ -12,6 +12,22 @@ class GroupsController < ApplicationController
   def show
   end
 
+  def course
+    @course = Group.find(params[:id]).course_id
+    respond_to do |format|
+      msg = { :status => "ok", :message => "Success!", :course => @course }
+      format.json  { render :json => msg }
+    end
+  end
+
+  def by_course
+    @group = Group.where(course_id: params[:id]).order('schedule ASC')
+    respond_to do |format|
+      msg = { :status => "ok", :message => "Success!", :groups => @group }
+      format.json { render :json => msg }
+    end
+  end
+
   # GET /groups/new
   def new
     @group = Group.new
