@@ -48,14 +48,13 @@
         <a class="navbar-brand" href="#">Select2Lab</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Groups", "/groups"  %></li>
-            <li><%= link_to "Courses", "/courses"  %></li>
-            <li><%= link_to "Students", "/people"  %></li>
+            <li><%= link_to t(Group.model_name.human.pluralize.titleize), "/groups"  %></li>
+            <li><%= link_to t(Course.model_name.human.pluralize.titleize), "/courses"  %></li>
+            <li><%= link_to t(Person.model_name.human.pluralize.titleize), "/people"  %></li>
           </ul>
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
@@ -66,10 +65,9 @@
           <div class="well sidebar-nav">
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Groups", "/groups"  %></li>
-              <li><%= link_to "Courses", "/courses"  %></li>
-              <li><%= link_to "Students", "/people"  %></li>
+              <li><%= link_to t(Group.model_name.human.pluralize.titleize), "/groups"  %></li>
+              <li><%= link_to t(Course.model_name.human.pluralize.titleize), "/courses"  %></li>
+              <li><%= link_to t(Person.model_name.human.pluralize.titleize), "/people"  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
